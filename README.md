@@ -1,1 +1,1 @@
-# reinforcement_learning_algos
+# Covering some core concepts in HMM & RL
