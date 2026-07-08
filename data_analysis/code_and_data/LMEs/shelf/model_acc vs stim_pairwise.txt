@@ -1,0 +1,18 @@
+ contrast                    estimate     SE  df
+ stimulus1 PC - stimulus3 PC    1.717 0.0601 Inf
+ stimulus1 PC - stimulus2 PI    1.211 0.0597 Inf
+ stimulus1 PC - stimulus4 PI    2.266 0.0596 Inf
+ stimulus3 PC - stimulus2 PI   -0.506 0.0494 Inf
+ stimulus3 PC - stimulus4 PI    0.549 0.0479 Inf
+ stimulus2 PI - stimulus4 PI    1.056 0.0456 Inf
+ z.ratio p.value
+  28.561  <.0001
+  20.270  <.0001
+  38.036  <.0001
+ -10.240  <.0001
+  11.478  <.0001
+  23.172  <.0001
+
+Results are averaged over the levels of: HL, block 
+Results are given on the log odds ratio (not the response) scale. 
+P value adjustment: tukey method for comparing a family of 4 estimates 

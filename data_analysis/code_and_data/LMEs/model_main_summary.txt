@@ -1,0 +1,43 @@
+Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
+ Family: binomial  ( logit )
+Formula: accuracy ~ stimulus + HL + pav + block + (1 | userId)
+   Data: df
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+  20666.6   20748.5  -10323.3   20646.6     26710 
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-25.4322   0.0439   0.1924   0.4479   2.4540 
+
+Random effects:
+ Groups Name        Variance Std.Dev.
+ userId (Intercept) 3.055    1.748   
+Number of obs: 26720, groups:  userId, 69
+
+Fixed effects:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  2.69193    0.26877  10.016   <2e-16 ***
+stimulus2   -1.21087    0.05974 -20.270   <2e-16 ***
+stimulus3   -1.71721    0.06012 -28.561   <2e-16 ***
+stimulus4   -2.26646    0.05959 -38.036   <2e-16 ***
+HLLTA       -0.08205    0.33148  -0.248    0.805    
+block2       0.51183    0.04810  10.641   <2e-16 ***
+block3v1     0.80321    0.05938  13.527   <2e-16 ***
+block3v2     0.90869    0.06969  13.039   <2e-16 ***
+block4       1.02230    0.05158  19.820   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+          (Intr) stmls2 stmls3 stmls4 HLLTA  block2 blck31 blck32
+stimulus2 -0.145                                                 
+stimulus3 -0.146  0.660                                          
+stimulus4 -0.152  0.708  0.680                                   
+HLLTA     -0.582  0.000  0.000  0.000                            
+block2    -0.063 -0.126 -0.042 -0.145  0.000                     
+block3v1  -0.049 -0.111 -0.043 -0.129  0.004  0.411              
+block3v2  -0.037 -0.095 -0.048 -0.129 -0.004  0.359  0.194       
+block4    -0.070  0.032 -0.085 -0.002  0.000  0.434  0.349  0.313
+fit warnings:
+fixed-effect model matrix is rank deficient so dropping 1 column / coefficient

@@ -1,0 +1,116 @@
+
+## HTA ###
+```{r}
+library(hBayesDM)
+hs1 <- gng_m4(
+  data = "s1_hta_gngm4.txt",
+  niter = 5000, 
+  nwarmup = 1500,
+  nchain = 3,
+  ncore = 4,
+  vb = FALSE,
+  modelRegressor = FALSE
+)
+
+```
+
+```{r}
+library(hBayesDM)
+hs2 <- gng_m4(
+  data = "s2_hta_gngm4.txt",
+  niter = 5000, 
+  nwarmup = 1500,
+  nchain = 3,
+  ncore = 4,
+  vb = FALSE,
+  modelRegressor = FALSE
+)
+
+```
+
+```{r}
+library(hBayesDM)
+hs3 <- gng_m4(
+  data = "s3_hta_gngm4.txt",
+  niter = 6000, 
+  nwarmup = 1000,
+  nchain = 3,
+  ncore = 4,
+  vb = FALSE,
+  modelRegressor = FALSE
+)
+
+```
+
+```{r}
+library(hBayesDM)
+hs4 <- gng_m4(
+  data = "s4_hta_gngm4.txt",
+  niter = 6000, 
+  nwarmup = 1000,
+  nchain = 3,
+  ncore = 4,
+  vb = FALSE,
+  modelRegressor = FALSE
+)
+
+```
+
+
+## LTA ###
+```{r}
+library(hBayesDM)
+ls1 <- gng_m4(
+  data = "s1_lta_gngm4.txt",
+  niter = 6000, 
+  nwarmup = 1000,
+  nchain = 3,
+  ncore = 1,
+  vb = FALSE,
+  modelRegressor = FALSE
+)
+
+```
+
+```{r}
+library(hBayesDM)
+ls2 <- gng_m4(
+  data = "s2_lta_gngm4.txt",
+  niter = 6000, 
+  nwarmup = 1000,
+  nchain = 3,
+  ncore = 1,
+  vb = FALSE,
+  modelRegressor = FALSE
+)
+
+```
+
+```{r}
+library(hBayesDM)
+ls3 <- gng_m4(
+  data = "s3_lta_gngm4.txt",
+  niter = 6000, 
+  nwarmup = 1000,
+  nchain = 3,
+  ncore = 1,
+  vb = FALSE,
+  modelRegressor = FALSE
+)
+
+```
+
+```{r}
+library(hBayesDM)
+ls4 <- gng_m4(
+  data = "s4_lta_gngm4.txt",
+  niter = 6000, 
+  nwarmup = 1000,
+  nchain = 3,
+  ncore = 1,
+  vb = FALSE,
+  modelRegressor = FALSE
+)
+
+```
+
