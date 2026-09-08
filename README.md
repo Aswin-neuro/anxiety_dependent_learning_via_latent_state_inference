@@ -1,6 +1,6 @@
 # Anxiety-Dependent Learning via Latent State Inference
 
-This repository implements a computational cognitive model to understand how **anxiety and conflict modulate learning** in humans and simulated agents. We use **Hidden Markov Models (HMMs)** to infer latent task blocks (high/low conflict, mixed conflict) from observed behavior (choices and rewards), extending classical reinforcement learning theory.
+This repository implements a computational cognitive model to understand how **anxiety and conflict modulate learning** in humans and simulated agents. We use **Hidden Markov Models (HMMs)** to infer latent task blocks (high/low conflict, medium conflict) from observed behavior (choices and rewards), extending classical reinforcement learning theory.
 
 ## Quick Start
 
@@ -45,20 +45,20 @@ Introductory tutorial on Expectation-Maximization (EM) estimation using a toy co
 
 **Purpose:**  
 Simulate an RL agent performing a Go/No-Go task under varying **conflict blocks**:
-- **MC (Mixed Conflict):** Balanced approach/avoid trials  
+- **MC (Medium Conflict):** Balanced approach/avoid trials  
 - **HC (High Conflict):** Mostly approach-bias (positive cues) inducing response conflict  
 - **LC (Low Conflict):** Mostly avoid-bias (negative cues) with minimal conflict
 
-Generate synthetic data and validate parameter recovery using maximum likelihood + L-BFGS-B optimization.
+Generate synthetic data and validate parameter recovery using maximum likelihood.
 
 **Key Concepts:**
-- Block structure: PC (Punished response - high conflict), PI (Punished inaction)
-- Cue valences: -1 (negative), +1 (positive)
+- Block structure: PC (Pavlovian Congruent - Low conflict), PI (Pavlovian Incongruent - High conflict)
+- Cue valences: -1 (Loss), +1 (Win)
 - Rescorla-Wagner learning updates on Go/No-Go values
 - Parameter recovery: can we re-fit agent parameters from synthetic trajectories?
 
 **Inputs:** 
-- `data/raw/blank_environment.csv` – empty task template
+- `data/raw/blank_environment.csv` – empty task setup
 - `data/raw/pure_task_environment.csv` – conflict block definitions
 - Other reference CSVs in root
 
@@ -116,20 +116,6 @@ Extend HMM inference by including **cue valence** in the observation. This riche
 - Same 3-state HMM but with 12 emission states  
 - Better separation between LC and MC blocks vs. action-outcome alone
 
-**Inputs:**
-- `data/interim/simulated_agent_4000T.csv`
-
-**Outputs:**
-- 12-column emission probability matrix
-- Crosstab: True Block vs. Inferred State (ideally HC is perfectly separated)
-- `data/processed/hmm_predictions_full.csv` (if saved)
-
-**How to Use:**
-1. Follow the same flow as 3a but use the extended observation tuple
-2. Compare the confusion matrix here to 3a—valence inclusion should reduce LC/MC confusion
-3. Save the state assignments for downstream Q-value tracking
-
----
 
 ### 4. **Post-Hoc Analysis: Q-Values & Surprise** (`notebooks/04_analysis/`)
 
@@ -198,26 +184,6 @@ A **Stan** specification for fitting the full hierarchical model across subjects
 ## Workflow & Execution Order
 
 ```
-1. Conceptual Foundation
-   └─ Run: 1_maximum_likelihood_estimation_coin_toss.ipynb
-      (No outputs; builds EM intuition)
-
-2. Generate Synthetic Data
-   └─ Run: 2_gng_simulation_and_parameter_recovery.ipynb
-      Outputs: simulated_agent_4000T.csv, simulated_agent_400T.csv
-
-3. Infer Task Blocks (Choose One or Both)
-   ├─ Run: 3_hmm_action_outcome.ipynb (simpler)
-   └─ Run: 4_hmm_action_outcome_valence.ipynb (recommended, richer)
-      Outputs: HMM state assignments, confusion matrices
-
-4. Reconstruct Latent Quantities
-   └─ Run: 5_tracking_agent_qvals_sv.ipynb
-      Inputs: simulated_agent_4000T.csv + HMM predictions
-      Outputs: agent_qvals_sv_by_trial.csv
-```
-
----
 
 ## Installation
 
@@ -293,5 +259,4 @@ To extend this work:
 ---
 
 **Author(s):** Aswin  
-**Last Updated:** 2026-09-08  
-**License:** (Specify if applicable)
+
