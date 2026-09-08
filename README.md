@@ -1,5 +1,7 @@
 # Anxiety-Dependent Learning via Latent State Inference
 
+## Goal: before the actual implementation, we wanted to test how pavlovian bias can affect latent state inference.
+
 This repository implements a computational cognitive model to understand how **anxiety and conflict modulate learning** in humans and simulated agents. We use **Hidden Markov Models (HMMs)** to infer latent task blocks (high/low conflict, medium conflict) from observed behavior (choices and rewards), extending classical reinforcement learning theory.
 
 ## Quick Start
